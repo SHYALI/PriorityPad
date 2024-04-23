@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
+const cors = require('cors')
 
 
 mongoose.connect(process.env.MONGODB_URL);
@@ -15,6 +16,8 @@ const todoSchema = new mongoose.Schema({
 const Todo = mongoose.model("Todo", todoSchema);
 
 app.use(express.json());
+app.use(cors())
+
 
 
 app.get("/", async (req, res) => {
