@@ -9,7 +9,7 @@ function AllTodo() {
 
   const fetchData = useCallback(() => {
     axios
-      .get("http://localhost:3000/")
+      .get("https://full-stack-to-do-application.onrender.com/")
       .then((response) => {
         setTodos(response.data.todos);
       })
@@ -28,7 +28,7 @@ function AllTodo() {
     setTodos(updatedTodos);
 
     try {
-      await axios.put(`http://localhost:3000/${updatedTodos[index]._id}`, {
+      await axios.put(`https://full-stack-to-do-application.onrender.com/${updatedTodos[index]._id}`, {
         isDone: updatedTodos[index].done,
       });
     } catch (error) {
@@ -43,7 +43,7 @@ function AllTodo() {
     setTodos(updatedTodos);
 
     try {
-      await axios.delete(`http://localhost:3000/${deletedTodoId}`);
+      await axios.delete(`https://full-stack-to-do-application.onrender.com/${deletedTodoId}`);
     } catch (error) {
       console.error("Error deleting todo from the database:", error);
     }
@@ -59,7 +59,7 @@ function AllTodo() {
 
   const handleAddTask = async () => {
     try {
-      await axios.post("http://localhost:3000/", {
+      await axios.post("https://full-stack-to-do-application.onrender.com/", {
         title: title,
         description: description,
         done: false,
